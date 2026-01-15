@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALL GAMER BY DIEY | MLBB Top Up</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root{
+  --blue1:#e0f2fe;
+  --blue2:#bae6fd;
+  --blue3:#38bdf8;
+  --blue4:#0284c7;
+  --dark:#0f172a;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,var(--blue1),#ffffff);
+  color:var(--dark);
+}
+
+.container{
+  max-width:520px;
+  margin:auto;
+  padding:20px;
+}
+
+header{
+  text-align:center;
+  padding:20px 10px;
+}
+
+header img{
+  width:120px;
+  margin-bottom:10px;
+}
+
+header h1{
+  margin:0;
+  color:var(--blue4);
+}
+
+header p{
+  color:#475569;
+}
+
+.glass{
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(14px);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 20px 40px rgba(2,132,199,.18);
+}
+
+input, select{
+  width:100%;
+  padding:14px;
+  margin-top:12px;
+  border-radius:14px;
+  border:1px solid #cbd5e1;
+  font-size:15px;
+}
+
+button{
+  width:100%;
+  margin-top:18px;
+  padding:15px;
+  border:none;
+  border-radius:20px;
+  background:linear-gradient(135deg,var(--blue3),var(--blue4));
+  color:white;
+  font-size:16px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+footer{
+  text-align:center;
+  margin-top:30px;
+  font-size:13px;
+  color:#64748b;
+}
+
+/* FLOATING BUTTONS */
+.float{
+  position:fixed;
+  right:16px;
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+  z-index:999;
+}
+
+.float svg{
+  width:26px;
+  height:26px;
+  fill:white;
+}
+
+.telegram{
+  bottom:88px;
+  background:linear-gradient(135deg,#38bdf8,#0284c7);
+}
+
+.whatsapp{
+  bottom:16px;
+  background:linear-gradient(135deg,#22c55e,#16a34a);
+}
+</style>
+
+<script>
+function order(){
+  const id = document.getElementById("id").value;
+  const server = document.getElementById("server").value;
+  const diamond = document.getElementById("diamond").value;
+
+  if(!id || !server || !diamond){
+    alert("Sila lengkapkan semua maklumat");
+    return;
+  }
+
+  const msg = `TOP UP MLBB%0AID: ${id}%0AServer: ${server}%0APakej: ${diamond}`;
+  window.open("https://wa.me/60175180249?text="+msg,"_blank");
+}
+</script>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+  <!-- LOGO MLBB -->
+  <img src="https://upload.wikimedia.org/wikipedia/en/6/6e/Mobile_Legends_Bang_Bang_logo.png" alt="MLBB Logo">
+  <h1>🎮 ALL GAMER BY DIEY</h1>
+  <p>Top Up Diamond Mobile Legends • Selamat & Dipercayai</p>
+</header>
+
+<div class="glass">
+  <input id="id" placeholder="Masukkan Player ID">
+  <input id="server" placeholder="Masukkan Server">
+
+  <select id="diamond">
+    <option value="">Pilih Diamond</option>
+    <option>140 💎 - RM9.90</option>
+    <option>165 💎 - RM13.50</option>
+    <option>182 💎 - RM15.20</option>
+    <option>210 💎 - RM16.60</option>
+    <option>284 💎 - RM21.00</option>
+    <option>326 💎 - RM23.00</option>
+    <option>355 💎 - RM25.70</option>
+    <option>397 💎 - RM28.00</option>
+    <option>429 💎 - RM30.50</option>
+    <option>443 💎 - RM32.00</option>
+    <option>513 💎 - RM36.00</option>
+    <option>716 💎 - RM47.90</option>
+    <option>1071 💎 - RM74.00</option>
+    <option>1586 💎 - RM100.00</option>
+    <option>2162 💎 - RM134.00</option>
+    <option>3274 💎 - RM200.00</option>
+    <option>5138 💎 - RM311.00</option>
+    <option>6236 💎 - RM378.00</option>
+  </select>
+
+  <button onclick="order()">Order via WhatsApp</button>
+</div>
+
+<footer>
+© 2026 ALL GAMER BY DIEY • MLBB Top Up
+</footer>
+
+</div>
+
+<!-- FLOATING TELEGRAM -->
+<a href="https://t.me/madindindun0" target="_blank" class="float telegram" aria-label="Telegram">
+<svg viewBox="0 0 24 24">
+<path d="M9.993 15.674 9.77 19.1c.39 0 .56-.168.765-.37l1.835-1.757 3.805 2.787c.698.384 1.19.182 1.364-.646l2.473-11.61c.204-.957-.345-1.332-.97-1.1L2.12 9.27c-.92.36-.907.87-.167 1.1l4.43 1.38 10.292-6.49c.484-.293.927-.13.563.163"/>
+</svg>
+</a>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/60175180249" target="_blank" class="float whatsapp" aria-label="WhatsApp">
+<svg viewBox="0 0 24 24">
+<path d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.4 0 .04 5.37.04 12c0 2.11.55 4.17 1.6 6L0 24l6.17-1.61A11.9 11.9 0 0 0 12.04 24c6.63 0 12-5.37 12-12a11.91 11.91 0 0 0-3.52-8.52z"/>
+</svg>
+</a>
+
+</body>
+</html>
