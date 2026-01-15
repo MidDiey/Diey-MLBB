@@ -33,21 +33,7 @@ body{
 
 header{
   text-align:center;
-  padding:20px 10px;
-}
-
-header img{
-  width:120px;
-  margin-bottom:10px;
-}
-
-header h1{
-  margin:0;
-  color:var(--blue4);
-}
-
-header p{
-  color:#475569;
+  padding:10px;
 }
 
 .glass{
@@ -58,18 +44,37 @@ header p{
   box-shadow:0 20px 40px rgba(2,132,199,.18);
 }
 
-input, select{
+input{
   width:100%;
   padding:14px;
   margin-top:12px;
   border-radius:14px;
   border:1px solid #cbd5e1;
-  font-size:15px;
 }
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+
+.item{
+  background:white;
+  border-radius:18px;
+  padding:14px;
+  text-align:center;
+  box-shadow:0 10px 25px rgba(2,132,199,.15);
+  cursor:pointer;
+  transition:.25s;
+}
+
+.item:hover{transform:translateY(-3px)}
+.item.active{outline:3px solid var(--blue3)}
 
 button{
   width:100%;
-  margin-top:18px;
+  margin-top:20px;
   padding:15px;
   border:none;
   border-radius:20px;
@@ -77,17 +82,16 @@ button{
   color:white;
   font-size:16px;
   font-weight:600;
-  cursor:pointer;
 }
 
 footer{
   text-align:center;
-  margin-top:30px;
+  margin-top:20px;
   font-size:13px;
   color:#64748b;
 }
 
-/* FLOATING BUTTONS */
+/* FLOAT BUTTON */
 .float{
   position:fixed;
   right:16px;
@@ -101,103 +105,89 @@ footer{
   z-index:999;
 }
 
-.float svg{
-  width:26px;
-  height:26px;
-  fill:white;
-}
+.telegram{bottom:88px;background:#38bdf8}
+.whatsapp{bottom:16px;background:#22c55e}
 
-.telegram{
-  bottom:88px;
-  background:linear-gradient(135deg,#38bdf8,#0284c7);
-}
-
-.whatsapp{
-  bottom:16px;
-  background:linear-gradient(135deg,#22c55e,#16a34a);
-}
+.float svg{width:26px;height:26px;fill:white}
 </style>
 
 <script>
-function order(){
-  const id = document.getElementById("id").value;
-  const server = document.getElementById("server").value;
-  const diamond = document.getElementById("diamond").value;
+let selected="";
 
-  if(!id || !server || !diamond){
+function pilih(val,el){
+  selected=val;
+  document.querySelectorAll('.item').forEach(i=>i.classList.remove('active'));
+  el.classList.add('active');
+}
+
+function order(){
+  const id=document.getElementById("id").value;
+  const server=document.getElementById("server").value;
+  if(!id||!server||!selected){
     alert("Sila lengkapkan semua maklumat");
     return;
   }
-
-  const msg = `TOP UP MLBB%0AID: ${id}%0AServer: ${server}%0APakej: ${diamond}`;
+  const msg=`TOP UP MLBB%0AID: ${id}%0AServer: ${server}%0APakej: ${selected}`;
   window.open("https://wa.me/60175180249?text="+msg,"_blank");
 }
 </script>
 </head>
 
 <body>
-<!-- LOGO MLBB -->
-<img src="image/mlbb.png" alt="MLBB Logo"
-style="
-width:150px;
-display:block;
-margin:20px auto;
-">
-<div class="container">
 
+<!-- LOGO MLBB KEKAL -->
+<img src="image/mlbb.png" style="width:150px;display:block;margin:20px auto;">
+
+<div class="container">
 <header>
-  <h1>🎮 ALL GAMER BY DIEY</h1>
-  <p>Top Up Diamond Mobile Legends • Selamat & Dipercayai</p>
+<h2>🎮 ALL GAMER BY DIEY</h2>
+<p>Top Up Diamond Mobile Legends</p>
 </header>
 
 <div class="glass">
-  <input id="id" placeholder="Masukkan Player ID">
-  <input id="server" placeholder="Masukkan Server">
+<input id="id" placeholder="Player ID">
+<input id="server" placeholder="Server">
 
-  <select id="diamond">
-    <option value="">Pilih Diamond</option>
-    <option>140 💎 - RM9.90</option>
-    <option>165 💎 - RM13.50</option>
-    <option>182 💎 - RM15.20</option>
-    <option>210 💎 - RM16.60</option>
-    <option>284 💎 - RM21.00</option>
-    <option>326 💎 - RM23.00</option>
-    <option>355 💎 - RM25.70</option>
-    <option>397 💎 - RM28.00</option>
-    <option>429 💎 - RM30.50</option>
-    <option>443 💎 - RM32.00</option>
-    <option>513 💎 - RM36.00</option>
-    <option>716 💎 - RM47.90</option>
-    <option>1071 💎 - RM74.00</option>
-    <option>1586 💎 - RM100.00</option>
-    <option>2162 💎 - RM134.00</option>
-    <option>3274 💎 - RM200.00</option>
-    <option>5138 💎 - RM311.00</option>
-    <option>6236 💎 - RM378.00</option>
-  </select>
-
-  <button onclick="order()">Order via WhatsApp</button>
+<div class="grid">
+<div class="item" onclick="pilih('140 💎 - RM9.90',this)">140 💎<br><b>RM9.90</b></div>
+<div class="item" onclick="pilih('165 💎 - RM13.50',this)">165 💎<br><b>RM13.50</b></div>
+<div class="item" onclick="pilih('182 💎 - RM15.20',this)">182 💎<br><b>RM15.20</b></div>
+<div class="item" onclick="pilih('210 💎 - RM16.60',this)">210 💎<br><b>RM16.60</b></div>
+<div class="item" onclick="pilih('284 💎 - RM21.00',this)">284 💎<br><b>RM21.00</b></div>
+<div class="item" onclick="pilih('326 💎 - RM23.00',this)">326 💎<br><b>RM23.00</b></div>
+<div class="item" onclick="pilih('355 💎 - RM25.70',this)">355 💎<br><b>RM25.70</b></div>
+<div class="item" onclick="pilih('397 💎 - RM28.00',this)">397 💎<br><b>RM28.00</b></div>
+<div class="item" onclick="pilih('429 💎 - RM30.50',this)">429 💎<br><b>RM30.50</b></div>
+<div class="item" onclick="pilih('443 💎 - RM32.00',this)">443 💎<br><b>RM32.00</b></div>
+<div class="item" onclick="pilih('513 💎 - RM36.00',this)">513 💎<br><b>RM36.00</b></div>
+<div class="item" onclick="pilih('716 💎 - RM47.90',this)">716 💎<br><b>RM47.90</b></div>
+<div class="item" onclick="pilih('1071 💎 - RM74.00',this)">1071 💎<br><b>RM74.00</b></div>
+<div class="item" onclick="pilih('1586 💎 - RM100.00',this)">1586 💎<br><b>RM100.00</b></div>
+<div class="item" onclick="pilih('2162 💎 - RM134.00',this)">2162 💎<br><b>RM134.00</b></div>
+<div class="item" onclick="pilih('3274 💎 - RM200.00',this)">3274 💎<br><b>RM200.00</b></div>
+<div class="item" onclick="pilih('5138 💎 - RM311.00',this)">5138 💎<br><b>RM311.00</b></div>
+<div class="item" onclick="pilih('6236 💎 - RM378.00',this)">6236 💎<br><b>RM378.00</b></div>
 </div>
 
-<footer>
-© 2026 ALL GAMER BY DIEY • MLBB Top Up
-</footer>
-
+<button onclick="order()">Order via WhatsApp</button>
 </div>
 
-<!-- FLOATING TELEGRAM -->
-<a href="https://t.me/madindindun0" target="_blank" class="float telegram" aria-label="Telegram">
+<footer>© 2026 ALL GAMER BY DIEY</footer>
+</div>
+
+<!-- TELEGRAM ASAL -->
+<a href="https://t.me/madindindun0" target="_blank" class="float telegram">
 <svg viewBox="0 0 24 24">
 <path d="M9.993 15.674 9.77 19.1c.39 0 .56-.168.765-.37l1.835-1.757 3.805 2.787c.698.384 1.19.182 1.364-.646l2.473-11.61c.204-.957-.345-1.332-.97-1.1L2.12 9.27c-.92.36-.907.87-.167 1.1l4.43 1.38 10.292-6.49c.484-.293.927-.13.563.163"/>
 </svg>
 </a>
 
-<!-- FLOATING WHATSAPP -->
-<a href="https://wa.me/60175180249" target="_blank" class="float whatsapp" aria-label="WhatsApp">
+<!-- WHATSAPP ASAL -->
+<a href="https://wa.me/60175180249" target="_blank" class="float whatsapp">
 <svg viewBox="0 0 24 24">
 <path d="M20.52 3.48A11.91 11.91 0 0 0 12.04 0C5.4 0 .04 5.37.04 12c0 2.11.55 4.17 1.6 6L0 24l6.17-1.61A11.9 11.9 0 0 0 12.04 24c6.63 0 12-5.37 12-12a11.91 11.91 0 0 0-3.52-8.52z"/>
 </svg>
 </a>
-  
-</body>  
+
+</body>
 </html>
